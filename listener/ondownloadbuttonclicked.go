@@ -11,6 +11,7 @@ func OnDownloadButtonClicked(b *ui.Button, linkToYoutube string) {
   err := downloader.DownloadVideoFromYoutube(linkToYoutube)
   if err != nil {
     log.Fatalf(err.Error())
+  } else {
+      log.Println("Video Downloaded!")
   }
-  log.Println("Video Downloaded!")
 }

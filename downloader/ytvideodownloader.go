@@ -1,24 +1,26 @@
 package downloader
 
 import (
-  //"../manager"
+  "errors"
+  "../manager"
   "github.com/knadh/go-get-youtube/youtube"
 )
 
-var option = &youtube.Option{
-  Rename: true,
-  Resume: true,
-  Mp3:    true,
-}
+var invalidLinkErr = errors.New("Invalid link error!")
 
 func DownloadVideoFromYoutube(link string) error {
-  /*videoID, err := manager.GetVideoIDFromLink(link)
+
+  if !manager.IsLinkFromYoutube(link) {
+    return invalidLinkErr
+  }
+
+  videoID, err := manager.GetVideoIDFromLink(link)
 
   if err != nil {
     return err
   }
-*/
-  video, err := youtube.Get("FTl0tl9BGdc")
+
+  video, err := youtube.Get(videoID)
 
   if err != nil {
     return err
