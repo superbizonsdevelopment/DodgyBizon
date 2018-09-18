@@ -3,6 +3,7 @@ package downloader
 import (
   "errors"
   "../manager"
+  "../constants"
   "github.com/knadh/go-get-youtube/youtube"
 )
 
@@ -31,6 +32,6 @@ func DownloadVideoFromYoutube(link string) error {
     Resume: true,
     Mp3: true,
   }
-  video.Download(0, "video.mp3", option)
+  video.Download(0, constants.APP_DIR + "/video.mp3", option)
   return nil
 }

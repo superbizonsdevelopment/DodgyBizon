@@ -1,5 +1,5 @@
 package constants
 
 const (
-  APP_DIR = "/DodgyBizon"
+  APP_DIR = "DodgyBizon"
 )
